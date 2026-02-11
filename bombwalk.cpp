@@ -1,11 +1,9 @@
 #include <iostream>
 #include <random>
 #include <vector>
-#include <set> // Required for fast lookup
-
+#include <set>
 int main() {
-    // 1. Store bombs as pairs in a set for O(log N) lookup
-    // Using pairs {x, y} allows the set to compare and find them quickly
+    
     std::set<std::pair<int, int>> bomb_locations = {
         {5, 5}, {-3, 7}, {10, -2}, {-6, -6}
     };
@@ -32,8 +30,7 @@ int main() {
             if (d == 2 || d == 4 || d == 5) y++;
             if (d == 3 || d == 6 || d == 7) y--;
 
-            // 2. Efficient Bomb Check
-            // Instead of looping through all bombs, we just check if current (x,y) is in the set
+            
             if (bomb_locations.count({x, y})) {
                 if (uni(gen) < BLAST_PROB) {
                     exploded = true;
