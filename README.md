@@ -12,3 +12,15 @@ This project implements a stochastic simulation in C++ to analyze random walk dy
 ```bash
 g++ bombwalk.cpp -o bombwalk
 ./bombwalk
+```
+
+## Added Notebook: S&P 500 SVM Strategy
+Added a notebook under `spy-analysis/ML/sp500svm.ipynb` implementing the following:
+* Data download via `yfinance` for SPY (2021-03-09 to 2026-03-09)
+* Feature engineering: Open/Close, High/Low, SMA_10, SMA_30, RSI, volatility, volume change
+* SVM model training with `GridSearchCV` and hyperparameter tuning (C, kernel, gamma)
+* Backtesting with cumulative returns, Sharpe ratio, max drawdown, and comparison to buy-and-hold
+* Plot output for strategy vs buy-and-hold results
+
+### Notes
+Run the notebook in a Python environment with required libraries installed (`scikit-learn`, `pandas`, `numpy`, `matplotlib`, `yfinance`).
